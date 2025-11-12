@@ -1,12 +1,125 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Hello World</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taslima Akter — Home</title>
+  <link rel="stylesheet" href="./css/home.css" />
 </head>
-<body>
-  <h1>Hello, world!</h1>
-  <p>If you can see this, your site is working.</p>
+
+  <main id="main" class="container">
+    <!-- Hero / intro -->
+    <section class="hero" aria-labelledby="about-title">
+      <div class="hero-text">
+        <h1 id="about-title">About Taslima Akter</h1>
+        <p>
+          I am an Assistant Professor of Computer Science at the University of Texas at San Antonio,
+          specializing in human–computer interaction, usable privacy and security, and accessibility.
+          My research focuses on designing privacy-preserving, ethics-driven technologies with and for blind
+          and low-vision people, using empirical studies and user-centered design to inform practical solutions.
+          I completed my PhD in Computer Science at Indiana University Bloomington and served as a
+          Computing Innovation Fellow postdoctoral researcher at the University of California, Irvine.
+          I publish research, collaborate across disciplines, and mentor students with the goal of advancing
+          inclusive and trustworthy technologies.
+        </p>
+        <p class="actions">
+          <a class="btn" href="publications.html">View all publications</a>
+        </p>
+      </div>
+      <figure class="hero-media">
+        <!-- Replace with a real image if you have one -->
+        <img src="./images/portrait-placeholder.jpg" alt="Portrait of Taslima Akter" />
+      </figure>
+    </section>
+
+    <!-- Research highlights -->
+    <section class="section" aria-labelledby="highlights-title">
+      <h2 id="highlights-title">Research Highlights</h2>
+      <ul class="card-grid">
+        <li class="card">
+          <img class="card-img" src="./images/highlight-1.jpg" alt="" />
+          <div class="card-meta">BLV and Collaboration Tools</div>
+          <h3 class="card-title">One-page study of pain points and fixes for BLV professionals</h3>
+          <a class="card-link" href="publications.html">Read more</a>
+        </li>
+        <li class="card">
+          <img class="card-img" src="./images/highlight-2.jpg" alt="" />
+          <div class="card-meta">Audio Confidence at High Speed</div>
+          <h3 class="card-title">How to convey model confidence when audio is sped up</h3>
+          <a class="card-link" href="publications.html">Read more</a>
+        </li>
+        <li class="card">
+          <img class="card-img" src="./images/highlight-3.jpg" alt="" />
+          <div class="card-meta">AI vs Human Intelligence</div>
+          <h3 class="card-title">Privacy risks of assistive tools for people with visual impairments</h3>
+          <a class="card-link" href="publications.html">Read more</a>
+        </li>
+        <li class="card">
+          <img class="card-img" src="./images/highlight-4.jpg" alt="" />
+          <div class="card-meta">Privacy and Assistive Tools for VIP</div>
+          <h3 class="card-title">Early study on privacy implications of assistive technologies</h3>
+          <a class="card-link" href="publications.html">Read more</a>
+        </li>
+      </ul>
+      <p class="more">
+        <a class="btn secondary" href="publications.html">View all publications</a>
+      </p>
+    </section>
+
+    <!-- News / updates -->
+    <section class="section" aria-labelledby="news-title">
+      <h2 id="news-title">Recent News &amp; Updates</h2>
+
+      <div class="news-grid">
+        <article class="news-card">
+          <h3 class="news-title">CRA Trustworthy AI Research Fellowship</h3>
+          <p class="news-desc">Dr. Akter received the CRA Trustworthy AI Research Fellowship.</p>
+          <time class="news-date" datetime="2025-06">June 2025</time>
+        </article>
+
+        <article class="news-card">
+          <h3 class="news-title">CHI 2025 Associate Chair — Accessibility and Aging</h3>
+          <p class="news-desc">Served as an Associate Chair for CHI 2025 in the Accessibility and Aging subcommittee.</p>
+          <time class="news-date" datetime="2025-04">April 2025</time>
+        </article>
+
+        <article class="news-card">
+          <h3 class="news-title">Program Committee — ASSETS and SOUPS 2024</h3>
+          <p class="news-desc">Program Committee member for ASSETS 2024 and SOUPS 2024.</p>
+          <time class="news-date" datetime="2024-10">October 2024</time>
+        </article>
+
+        <article class="news-card">
+          <h3 class="news-title">Joined UTSA as Assistant Professor</h3>
+          <p class="news-desc">Joined the Department of Computer Science at the University of Texas at San Antonio.</p>
+          <time class="news-date" datetime="2024-08">August 2024</time>
+        </article>
+
+        <article class="news-card">
+          <h3 class="news-title">SOUPS Lightning Talks and Demos co-chair</h3>
+          <p class="news-desc">Served as Lightning Talks and Demos co-chair at SOUPS.</p>
+          <time class="news-date" datetime="2024-08">August 2024</time>
+        </article>
+      </div>
+
+      <p class="more">
+        <a class="btn secondary" href="updatesandnews.html">View all news</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Taslima Akter</strong> · Assistant Professor, Computer Science, UTSA</p>
+      <p>Publications · CV · Google Scholar · ORCID · GitHub · Email</p>
+      <p>© <span id="year"></span> Taslima Akter · Last updated: November 11, 2025 · <a href="#main">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // year stamp
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
