@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taslima Akter - Publications</title>
+  <link rel="stylesheet" href="/css/publications.css?v=3" />
+</head>
+<body>
+  <!-- Skip + Navbar (same on every page) -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="brand" href="index.html">Taslima Akter</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="publications.html" aria-current="page">Publications</a>
+        <a href="updatesandnews.html">Updates &amp; News</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container publications">
+    <!-- Page header -->
+    <header class="page-head">
+      <div>
+        <h1>Publications</h1>
+        <p class="lede">
+          Here you can find my publications and project work. I primarily focus on
+          accessibility, usable privacy &amp; security, and human–computer interaction.
+        </p>
+      </div>
+      <figure class="shelf">
+        <div class="bar tall"></div>
+        <div class="bar"></div>
+        <div class="bar short"></div>
+        <div class="bar tallest"></div>
+      </figure>
+    </header>
+
+    <!-- Controls -->
+    <section class="controls" aria-label="Filters and search">
+      <div class="search-wrap">
+        <input id="q" class="search" type="search" placeholder="Search publications…" />
+      </div>
+
+      <div class="chips" role="group" aria-label="Topics">
+        <button class="chip" data-topic="Accessibility">Accessibility</button>
+        <button class="chip" data-topic="Privacy">Privacy</button>
+        <button class="chip" data-topic="AI">AI</button>
+        <button class="chip" data-topic="HCI">HCI</button>
+        <button class="chip" data-topic="Security">Security</button>
+        <button class="chip" data-topic="Computer Vision">Computer Vision</button>
+        <button class="chip" data-topic="Networks">Networks</button>
+      </div>
+
+      <div class="side-controls">
+        <label class="year-select">
+          <span>Year</span>
+          <select id="year">
+            <option value="">All</option>
+            <option>2024</option>
+            <option>2019</option>
+            <option>2012</option>
+          </select>
+        </label>
+        <button id="clear" class="btn ghost">Clear filters</button>
+        <span id="count" class="count">0 results</span>
+      </div>
+    </section>
+
+    <!-- Results list -->
+    <ol id="results" class="pub-list">
+      <!-- 2024 HCXAI workshop -->
+      <li class="pub" data-year="2024" data-topics="AI,Explainable AI,Privacy,HCI">
+        <h3 class="title">
+          The Drawback of Insight: Detailed Explanations Can Reduce Agreement with XAI
+        </h3>
+        <p class="meta">
+          Sabid Bin Habib Pias, Alicia Freel, Timothy Trammel, <strong>Taslima Akter</strong>,
+          Donald Williamson, Apu Kapadia — ACM CHI 2024 Workshop on Human-Centered Explainable AI (HCXAI), 2024
+        </p>
+        <div class="actions">
+          <a class="open" href="#" aria-label="Open paper">Open</a>
+        </div>
+      </li>
+
+      <!-- 2019 GHC -->
+      <li class="pub" data-year="2019" data-topics="Privacy,Accessibility,HCI,AI">
+        <h3 class="title">
+          AI vs Human Intelligence: Privacy Implications of Assistive Tools for Visually Impaired People
+        </h3>
+        <p class="meta">
+          <strong>Taslima Akter</strong>, Bryan Dosono, Tousif Ahmed, Apu Kapadia, Bryan Semaan — Grace Hopper Conference (GHC), 2019
+        </p>
+        <div class="actions">
+          <a class="open" href="#" aria-label="Open paper">Open</a>
+        </div>
+      </li>
+
+      <!-- 2019 SOUPS -->
+      <li class="pub" data-year="2019" data-topics="Privacy,Accessibility,HCI">
+        <h3 class="title">
+          Privacy Implications of Assistive Tools for Visually Impaired People
+        </h3>
+        <p class="meta">
+          <strong>Taslima Akter</strong>, Bryan Dosono, Tousif Ahmed, Apu Kapadia, Bryan Semaan — SOUPS, 2019
+        </p>
+        <div class="actions">
+          <a class="open" href="#" aria-label="Open paper">Open</a>
+        </div>
+      </li>
+
+      <!-- 2012 -->
+      <li class="pub" data-year="2012" data-topics="Privacy,Accessibility,Computer Vision">
+        <h3 class="title">
+          Anchoring Privacy Views of Visually Impaired People with Camera-Based Assistive Technologies
+        </h3>
+        <p class="meta">
+          <strong>Taslima Akter</strong> — Governance, Indiana University, 2012
+        </p>
+        <div class="actions">
+          <a class="open" href="#" aria-label="Open paper">Open</a>
+        </div>
+      </li>
+    </ol>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>Taslima Akter</strong> · Assistant Professor, Computer Science, UTSA</p>
+      <p>Publications · CV · Google Scholar · ORCID · GitHub · Email</p>
+      <p>© <span id="year"></span> Taslima Akter · Last updated: November 11, 2025 · <a href="#main">Back to top</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // year stamp
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple client-side search + filter
+    const q = document.getElementById('q');
+    const yearSel = document.getElementById('year');
+    const chips = [...document.querySelectorAll('.chip')];
+    const results = document.getElementById('results');
+    const items = [...results.querySelectorAll('.pub')];
+    const countEl = document.getElementById('count');
+    const clearBtn = document.getElementById('clear');
+
+    let activeTopics = new Set();
+
+    const apply = () => {
+      const query = (q.value || '').toLowerCase().trim();
+      const y = yearSel.value;
+      let shown = 0;
+
+      items.forEach(li => {
+        const text = li.textContent.toLowerCase();
+        const matchesText = !query || text.includes(query);
+        const matchesYear = !y || li.dataset.year === y;
+        const topics = (li.dataset.topics || '').toLowerCase();
+        const matchesTopics = activeTopics.size === 0 ||
+          [...activeTopics].every(t => topics.includes(t.toLowerCase()));
+
+        const visible = matchesText && matchesYear && matchesTopics;
+        li.style.display = visible ? '' : 'none';
+        if (visible) shown++;
+      });
+
+      countEl.textContent = `${shown} result${shown === 1 ? '' : 's'}`;
+    };
+
+    q.addEventListener('input', apply);
+    yearSel.addEventListener('change', apply);
+    chips.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const t = btn.dataset.topic;
+        if (btn.classList.toggle('on')) activeTopics.add(t);
+        else activeTopics.delete(t);
+        apply();
+      });
+    });
+    clearBtn.addEventListener('click', () => {
+      q.value = '';
+      yearSel.value = '';
+      chips.forEach(c => c.classList.remove('on'));
+      activeTopics.clear();
+      apply();
+    });
+
+    apply();
+  </script>
+</body>
+</html>
