@@ -1,0 +1,73 @@
+/* css/tokens.css */
+/* Design tokens shared by all pages: colors, radii, shadows, spacing, fonts */
+
+:root{
+  /* Core palette (light) */
+  --background:#ffffff;
+  --foreground: oklch(0.145 0 0);
+
+  --card:#ffffff;
+  --card-foreground: var(--foreground);
+
+  --muted:#ececf0;
+  --muted-foreground:#717182;
+
+  --primary:#030213;
+  --primary-foreground:#ffffff;
+
+  --accent:#e9ebef;
+  --border: rgba(0,0,0,.1);
+
+  /* Layout & effects */
+  --container: 1200px;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(0,0,0,.06), 0 6px 24px rgba(0,0,0,.06);
+
+  /* Typography */
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-serif: Merriweather, Georgia, "Times New Roman", serif;
+
+  /* Component sizing */
+  --control-height: 40px;
+  --gap: 12px;
+}
+
+/* Auto-dark via html.dark (your toggle already sets this class) */
+html.dark{
+  --background:#121316;
+  --foreground:#eef0f3;
+
+  --card:#17181c;
+  --card-foreground:#eef0f3;
+
+  --muted:#22242a;
+  --muted-foreground:#aeb3be;
+
+  --border: rgba(255,255,255,.12);
+
+  --primary:#aeb3be;
+  --primary-foreground:#121316;
+
+  --accent:#252831;
+}
+
+/* Global primitives that are safe for all pages */
+*{box-sizing:border-box}
+html,body{margin:0}
+html{color-scheme:light dark}
+body{
+  background:var(--background);
+  color:var(--foreground);
+  font:16px/1.55 var(--font-sans);
+}
+img{max-width:100%; display:block}
+a{color:var(--primary); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Shared utility classes */
+.container{max-width:var(--container); margin:0 auto; padding:24px}
+.btn{display:inline-flex; align-items:center; gap:8px; height:var(--control-height); padding:0 14px; border-radius:8px; font-weight:600}
+.btn.ghost{border:1px solid var(--border); background:transparent; color:inherit}
+.badge{display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px; border:1px solid var(--border); background:var(--card); color:inherit}
+.card{background:var(--card); color:var(--card-foreground); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow)}
+.muted{color:var(--muted-foreground)}

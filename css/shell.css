@@ -1,0 +1,54 @@
+/* css/shell.css */
+/* Shared header + footer structure. Relies on variables from tokens.css */
+
+.skip-link{position:absolute;left:-9999px}
+.skip-link:focus{position:fixed;left:16px;top:16px;background:var(--primary);color:var(--primary-foreground);padding:8px 12px;border-radius:8px;z-index:1000}
+
+.site-header{
+  position:sticky; top:0; z-index:100;
+  background:var(--background);
+  border-bottom:1px solid var(--border);
+}
+.header-row{
+  display:flex; align-items:center; gap:16px;
+  padding:10px 0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px;
+  font-weight:800; color:var(--foreground); text-decoration:none;
+}
+.brand .logo{
+  width:28px; height:28px; display:grid; place-items:center;
+  border-radius:8px; border:1px solid var(--border);
+  background:var(--card);
+}
+
+/* nav */
+.nav{margin-left:auto; display:flex; gap:10px; align-items:center}
+.nav a{
+  padding:8px 10px; border-radius:8px;
+  color:var(--muted-foreground);
+  border:1px solid transparent;
+  text-decoration:none;
+}
+.nav a:hover{background:var(--accent); color:var(--foreground)}
+.nav a[aria-current="page"]{background:var(--accent); color:var(--foreground); border-color:var(--border)}
+
+/* Dark mode button (emoji as logo) */
+.theme-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  height:32px; padding:0 10px;
+  border-radius:8px; border:1px solid var(--border);
+  background:var(--card); color:inherit;
+  cursor:pointer;
+}
+.theme-btn:hover{filter:brightness(1.05)}
+.theme-btn .icon{font-size:16px}
+
+/* Footer */
+.site-footer{
+  border-top:1px solid var(--border);
+  margin-top:40px; color:var(--muted-foreground);
+}
+.site-footer .container{padding:20px 24px}
+.site-footer p{margin:.25rem 0}
