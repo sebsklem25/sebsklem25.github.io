@@ -10,6 +10,7 @@
   display:flex;align-items:center;justify-content:space-between;
   gap:24px;padding-top:8px;margin-bottom:8px;
 }
+
 .page-head h1{margin:0 0 6px;font:700 30px/1.2 Merriweather,serif}
 .lede{margin:0;color:var(--muted-foreground)}
 .shelf{width:160px;height:120px;display:grid;grid-auto-flow:column;gap:10px}
@@ -57,8 +58,22 @@
   appearance:none;-webkit-appearance:none;
   border:1px solid var(--border);padding:8px 10px;border-radius:8px;background:#fff;color:var(--foreground);
 }
-.btn{background:var(--primary);color:var(--primary-foreground);border:0;border-radius:8px;padding:8px 12px;font-weight:600}
-.btn.ghost{background:transparent;color:var(--foreground);border:1px solid var(--border)}
+
+/* Only style buttons inside the filter controls, not navbar .btn */
+.side-controls .btn{
+  background:var(--primary);
+  color:var(--primary-foreground);
+  border:0;
+  border-radius:8px;
+  padding:8px 12px;
+  font-weight:600;
+}
+.side-controls .btn.ghost{
+  background:transparent;
+  color:var(--foreground);
+  border:1px solid var(--border);
+}
+
 .count{color:var(--muted-foreground);font-size:14px}
 
 /* ===== Results ===== */

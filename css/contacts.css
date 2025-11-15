@@ -29,11 +29,12 @@
   max-width:360px;
   height:auto;
   display:block;
-  border-radius:10px;
-  background:var(--card);
-  border:1px solid var(--border);
-  padding:6px;           /* subtle inset like your mock */
+  border-radius:0;       /* or keep 10px if you still want rounded corners */
+  background:transparent;
+  border:none;
+  padding:0;
 }
+
 
 .contact-rule{
   border:0;
@@ -116,7 +117,9 @@ input:focus, textarea:focus{
 .field:nth-of-type(4){ grid-column: 1 / -1; }
 
 .actions{ grid-column: 1 / -1; }
-.btn{
+
+/* Only style buttons inside the contact form, not navbar .btn */
+.contact-form .btn{
   background: var(--primary);
   color: var(--primary-foreground);
   border: 0;
@@ -124,7 +127,11 @@ input:focus, textarea:focus{
   padding: 8px 12px;
   font-weight: 600;
 }
-.btn.btn-sm{ padding: 6px 10px; font-size: 13px; }
+.contact-form .btn.btn-sm{
+  padding: 6px 10px;
+  font-size: 13px;
+}
+
 
 /* ===== Contact info list ===== */
 .contact-list{
