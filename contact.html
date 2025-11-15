@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/contacts.css" />
   
   <script src="js/include.js" defer></script>
+  <script src="js/contact.js" defer></script> <!-- NEW -->
 
 </head>
 <body>
@@ -35,25 +36,61 @@
       <article class="card form-card">
         <h2 class="card-title">Send Me a Message</h2>
 
+        <p class="form-hint">
+          Fields marked <span aria-hidden="true">*</span> are required. This demo form
+          does not send real email, but it will check for missing or invalid fields.
+        </p>
+
+        <p class="form-status" id="form-status" aria-live="polite"></p>
+
         <form class="contact-form" action="#" method="post" novalidate>
           <div class="field two">
-            <label for="name">Full Name</label>
-            <input id="name" name="name" type="text" placeholder="Your full name" autocomplete="name" />
+            <label for="name">Full Name <span class="required">*</span></label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your full name"
+              autocomplete="name"
+              required
+            />
+            <p class="field-error" id="name-error"></p>
           </div>
 
           <div class="field two">
-            <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" />
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              autocomplete="email"
+              required
+            />
+            <p class="field-error" id="email-error"></p>
           </div>
 
           <div class="field">
             <label for="subject">Subject</label>
-            <input id="subject" name="subject" type="text" placeholder="What can I help you with?" />
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              placeholder="What can I help you with?"
+            />
+            <p class="field-error" id="subject-error"></p>
           </div>
 
           <div class="field">
-            <label for="message">Your Message</label>
-            <textarea id="message" name="message" rows="6" placeholder="Type your message here..."></textarea>
+            <label for="message">Your Message <span class="required">*</span></label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              placeholder="Type your message here..."
+              required
+            ></textarea>
+            <p class="field-error" id="message-error"></p>
           </div>
 
           <div class="actions">
@@ -61,6 +98,7 @@
           </div>
         </form>
       </article>
+
 
       <!-- Right: contact info -->
       <article class="card info-card">
@@ -88,13 +126,50 @@
           <div class="row">
             <dt>Follow</dt>
             <dd class="pill-row">
-              <a class="pill" href="https://scholar.google.com/" target="_blank" rel="noopener">GS</a>
-              <a class="pill" href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
-              <a class="pill" href="https://github.com/" target="_blank" rel="noopener">GH</a>
-              <a class="pill" href="https://www.linkedin.com/" target="_blank" rel="noopener">in</a>
-              <a class="pill" href="https://x.com/" target="_blank" rel="noopener">X</a>
+              <!-- Google Scholar -->
+              <a class="pill" href="index.html" aria-label="Google Scholar profile (demo link)">
+                <span class="pill-icon" aria-hidden="true">
+                  <img src="images/googlescholar.svg" alt="" />
+                </span>
+                <span class="pill-label">Google Scholar</span>
+              </a>
+
+              <!-- ORCID -->
+              <a class="pill" href="index.html" aria-label="ORCID profile (demo link)">
+                <span class="pill-icon" aria-hidden="true">
+                  <img src="images/orcid-svgrepo-com.svg" alt="" />
+                </span>
+                <span class="pill-label">ORCID</span>
+              </a>
+
+              <!-- GitHub -->
+              <a class="pill" href="index.html" aria-label="GitHub profile (demo link)">
+                <span class="pill-icon" aria-hidden="true">
+                  <img src="images/github.svg" alt="" />
+                </span>
+                <span class="pill-label">GitHub</span>
+              </a>
+
+              <!-- LinkedIn -->
+              <a class="pill" href="index.html" aria-label="LinkedIn profile (demo link)">
+                <span class="pill-icon" aria-hidden="true">
+                  <img src="images/linkedin-svgrepo-com.svg" alt="" />
+                </span>
+                <span class="pill-label">LinkedIn</span>
+              </a>
+
+              <!-- X -->
+              <a class="pill" href="index.html" aria-label="X profile (demo link)">
+                <span class="pill-icon" aria-hidden="true">
+                  <img src="images/x.svg" alt="" />
+                </span>
+                <span class="pill-label">X</span>
+              </a>
             </dd>
           </div>
+
+
+
         </dl>
       </article>
     </section>

@@ -158,20 +158,104 @@ input:focus, textarea:focus{
 }
 
 .contact-list a{ color: var(--primary); }
+/* Required + validation hints */
+.form-hint{
+  margin: 4px 0 8px;
+  font-size: 11.5px;
+  color: var(--muted-foreground);
+}
 
-/* small “pills” for social links */
-.pill-row{ display: flex; flex-wrap: wrap; gap: 6px; }
+.required{
+  color: #d92d20; /* red asterisk */
+}
+
+/* Overall form status text */
+.form-status{
+  margin: 4px 0 10px;
+  font-size: 12.5px;
+}
+
+.form-status.error{
+  color: #d92d20;
+}
+
+.form-status.success{
+  color: #047857;
+}
+
+/* Field-level errors */
+.field-error{
+  min-height: 14px;          
+  font-size: 11px;
+  color: #d92d20;
+}
+
+.field.error input,
+.field.error textarea{
+  border-color: #d92d20;
+}
+
+
+/* Social links: icon over label */
+.pill-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
 .pill{
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 22px;
-  padding: 0 8px;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: var(--foreground);
   font-size: 12px;
+}
+
+/* Round “icon” chip */
+.pill-icon{
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: var(--secondary);
-  color: var(--sidebar-foreground, var(--foreground));
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+/* Label under the icon */
+.pill-label{
+  font-size: 11px;
+}
+
+/* Hover / focus: light up the icon */
+.pill:hover .pill-icon,
+.pill:focus-visible .pill-icon{
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.pill:hover,
+.pill:focus-visible{
   text-decoration: none;
 }
-.pill:hover{ text-decoration: none; opacity: .9; }
+.pill-icon img{
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.pill-icon img{
+  width: 18px;
+  height: 18px;
+  display: block;
+  /* default (light theme): leave colors as-is */
+  filter: none;
+}
+/* In dark theme, flip icon colors so they show up on dark background */
+html.dark .pill-icon img{
+  filter: invert(1) brightness(1.2);
+}
